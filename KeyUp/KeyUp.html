@@ -9,9 +9,13 @@
 </head>
 <body>
     <div id="app">
-        <form v-on:submit.prevent="alterarNome('Dias')">
-            <input type="text" v-model="textDigitado">
-        </form>
+        <input type="text" v-model="textDigitado" v-on:keyup.enter="alterarNome('Dias')">
+
+        <ul>
+            <li v-for="(value, key) in array">
+                {{key}} - {{value}}
+            </li>
+        </ul>
     </div>
 
     <script>
@@ -19,10 +23,12 @@
             el: '#app',
             data: {
                 textDigitado: "",
+                array: []
             },
             methods:{
                 alterarNome(sobrenome){
-                    this.textDigitado = sobrenome;
+                    this.array.push(this.textDigitado);
+                    this.textDigitado = '';
                 }
             }
         })
