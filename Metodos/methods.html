@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{msg}}</p>
+        <p>{{ehverdade ? 'Verdade' : 'Falso'}}</p>
+        <p>{{frutas[0] + ' e ' + frutas[1]}}</p>
+        <p>Aluno: {{aluno.nome}}</p>
+        <p>{{1 + num1}}</p>
+        <P>{{ metodo(2) }}</P>
+    </div>
+
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                msg: 'Teste de mensagem',
+                ehverdade: false,
+                frutas: ['Pera','Uva','Maçã'],
+                aluno: { nome: "Renan"},
+                num1: 1,
+            },
+            methods: {
+                metodo(index){
+                    return 'Fruta: ' + this.frutas[index]
+                }
+            }
+        })
+    </script>
+</body>
+</html>
